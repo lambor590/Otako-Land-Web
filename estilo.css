@@ -11,13 +11,7 @@ body {
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
-  background: linear-gradient(
-    45deg,
-    rgb(0, 155, 244),
-    rgb(183, 0, 244),
-    rgb(0, 155, 244),
-    rgb(183, 0, 244)
-  );
+  background: linear-gradient(45deg, rgb(0, 155, 244), rgb(183, 0, 244));
   background-size: 600% 100%;
   animation: gradient 16s linear infinite;
   animation-direction: alternate;
@@ -51,12 +45,10 @@ body {
   margin-bottom: auto;
   user-select: none;
   transition: 1s;
-  animation: animarInicio 3s;
+  animation: animarInicio 1s;
   text-transform: uppercase;
   background-image: linear-gradient(
     to right,
-    rgb(255, 0, 242),
-    rgb(0, 208, 255),
     rgb(255, 0, 242),
     rgb(0, 208, 255),
     rgb(255, 0, 242)
@@ -66,7 +58,7 @@ body {
   color: transparent;
   background-size: 300%;
   background-position: -100%;
-  animation: animatedText 10s alternate infinite;
+  animation: animatedText 15s alternate infinite;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.293);
 }
 @keyframes animatedText {
@@ -75,8 +67,6 @@ body {
   }
 }
 
-@keyframes animarTexto {
-}
 .box {
   display: flex;
   position: relative;
@@ -87,7 +77,7 @@ body {
   opacity: 1;
   transition: 2s;
   user-select: none;
-  animation: animarInicio 2.7s ease-out;
+  animation: animarInicio 1.7s ease-out;
   width: 250px;
   height: 250px;
   background: linear-gradient(45deg, rgb(0, 195, 244), rgb(182, 0, 218));
@@ -109,14 +99,14 @@ body {
   opacity: 1;
   transition: 2s;
   user-select: none;
-  animation: animarInicio 2.7s ease-out;
+  animation: animarInicio 1.7s ease-out;
   width: 270px;
   height: 270px;
   background: linear-gradient(45deg, rgb(0, 195, 244), rgb(182, 0, 218));
   border-radius: 50%;
   min-width: 270px;
   inset: -10px 140px;
-  animation: girar 3s linear infinite;
+  animation: girar 2s linear infinite;
 }
 .box::after {
   content: "";
@@ -152,8 +142,8 @@ botón {
   background: #00000000;
   margin-top: auto;
   margin-bottom: 100px;
-  animation: inicioBoton 1.5s ease-out;
-  transition: 1s;
+  animation: inicioBoton 1s ease-out;
+  transition: 0.5s;
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
@@ -225,5 +215,37 @@ botón:active {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1000px) and (max-height: 950px) {
+  .texto {
+    font-size: 2rem;
+  }
+  .box {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+  }
+  .box::before {
+    animation: none;
+  }
+  img {
+    width: 80px;
+    height: 80px;
+  }
+  botón {
+    padding: 8px 30px;
+    margin-bottom: 30px;
+    width: 300px;
+  }
+  botón::before {
+    padding: 8px 30px;
+    margin-bottom: 30px;
+    width: 300px;
+    animation: none;
+  }
+  botón span {
+    font-size: 1em;
   }
 }
