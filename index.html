@@ -13,7 +13,10 @@
     <meta content="img/logo.webp" property="og:image" />
     <meta content="#000000" data-react-helmet="true" name="theme-color" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Descargar launcher de Minecraft para el servidor Otako Craft Mods.">
+    <meta
+      name="description"
+      content="Descargar launcher de Minecraft para el servidor Otako Craft Mods."
+    />
     <link rel="shortcut icon" href="img/logo.webp" />
   </head>
 
@@ -27,12 +30,16 @@
       </div>
     </div>
     <botón
-      id="erboton"
       class="boton sequencia aparecerDesdeAbajo"
       style="--clr: rgb(32, 173, 204); color: #ab1eda"
+      onclick = "download()"
     >
       <span>Instalar launcher</span>
     </botón>
-    <script src="holaquetal.js"></script>
+    <script type="text/javascript">
+      function download() {
+        window.open("https://github.com/lambor590/OTCR-Launcher/releases/latest/Otako.Craft.Launcher-instalador.exe")
+      }
+    </script>
   </body>
 </html>
