@@ -1,0 +1,64 @@
+---
+import Card from "@components/Card.astro";
+import Hero from "@components/Hero.astro";
+import PrettyButton from "@components/PrettyButton.astro";
+import Section from "@components/Section.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Otako Land">
+  <Hero
+    title="Bienvenido a Otako Land"
+    description="Una comunidad de jugadores donde podrás compartir momentos divertidos y hacer amigos."
+  >
+    <PrettyButton
+      icon="discord"
+      href="/discord"
+      text="Únete a nuestro Discord"
+    />
+  </Hero>
+  <Section title="¿Por qué elegirnos?">
+    <Card
+      title="Comunidad Cercana"
+      description="Somos una comunidad pequeña donde todos nos conocemos y cuidamos unos de otros."
+      color="blue"
+    />
+    <Card
+      title="Soporte Personalizado"
+      description="Atención directa y ayuda individual para todos nuestros miembros."
+      color="green"
+    />
+    <Card
+      title="Comunidad Participativa"
+      description="Todos los miembros pueden aportar ideas, sugerencias y participar en el crecimiento de la comunidad."
+      color="pink"
+    />
+  </Section>
+  <Section title="Nuestros Proyectos Destacados" dark>
+    <Card
+      title="Otako Craft"
+      description="Tenemos un servidor de Minecraft Java con mods y otro sin mods con soporte para Bedrock. Más información en <a class='link' href='/minecraft'>otako.link/minecraft</a>."
+    />
+    <Card
+      title="Bots de Discord"
+      description="Tenemos bots personalizados para nuestro Discord que mejoran la experiencia de nuestros miembros, aunque no es algo que se trabaje principalmente."
+      color="blue"
+    />
+    <Card
+      title="Kaizen"
+      description="¿Alguna vez has tenido poco espacio en tu disco duro y no sabes que borrar? ¿O descargar contenido multimedia de alguna plataforma? Más información en <a class='link' href='/kaizen'>otako.link/kaizen</a>."
+      color="orange"
+    />
+  </Section>
+  <Hero
+    title="¿Listo para mejorar tu experiencia gaming?"
+    description="¡Únete hoy a nuestro Discord y forma parte de nuestra increíble comunidad de jugadores!"
+    simple
+  >
+    <PrettyButton
+      icon="discord"
+      href="/discord"
+      text="Únete a nuestro Discord"
+    />
+  </Hero>
+</Layout>
