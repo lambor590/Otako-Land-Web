@@ -1,0 +1,30 @@
+---
+interface Props {
+  link: string | URL;
+  text: string;
+}
+
+const { link, text } = Astro.props;
+---
+
+<a class="nav-link" href={link}>{text}</a>
+
+<style>
+  .nav-link {
+    @apply relative text-sm text-gray-300 px-4 py-2 rounded-lg transition-all duration-300 ease-out;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-1/2 h-[2px] w-0 bg-purple-400;
+    transform: translateX(-50%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link:hover {
+    @apply bg-purple-500/30 text-purple-200 scale-105 shadow-lg shadow-purple-500/20;
+  }
+
+  .nav-link:hover::after {
+    @apply w-4/5;
+  }
+</style>
