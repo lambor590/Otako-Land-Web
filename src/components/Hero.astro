@@ -1,0 +1,150 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  simple?: boolean;
+}
+
+const { title, description, simple } = Astro.props;
+---
+
+<section class={`hero ${simple ? 'hero-simple' : 'hero-gradient'}`}>
+  {
+    !simple && (
+      <div class="blob-container">
+        <div class="blob blob-1" />
+        <div class="blob blob-2" />
+        <div class="blob blob-3" />
+      </div>
+    )
+  }
+  <div class="content">
+    <div class="text-wrapper fade-in">
+      {
+        simple ? (
+          <h2 class="title-simple">{title}</h2>
+          <p class="description-simple">{description}</p>
+        ) : (
+          <h1 class="title">{title}</h1>
+          <p class="description">{description}</p>
+        )
+      }
+    </div>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .hero {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 1rem;
+  }
+
+  .hero-simple {
+    background-color: #111827;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(to bottom right, #6b21a8, #1e3a8a, #3730a3);
+    padding: 6rem 1rem;
+  }
+
+  .blob-container {
+    position: absolute;
+    inset: 0;
+  }
+
+  .blob {
+    position: absolute;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    filter: blur(15px);
+    opacity: 0.2;
+    animation: blob 10s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .blob-1 {
+    top: 0;
+    left: -1rem;
+    background: rgb(168, 85, 247);
+  }
+
+  .blob-2 {
+    top: 0;
+    right: -1rem;
+    background: rgb(59, 130, 246);
+    animation-delay: 2.5s;
+  }
+
+  .blob-3 {
+    bottom: -2rem;
+    left: 5rem;
+    background: rgb(99, 102, 241);
+    animation-delay: 5s;
+  }
+
+  .content {
+    max-width: 80rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+
+  .fade-in {
+    animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: bold;
+    background: linear-gradient(to right, #d8b4fe, #93c5fd, #a5b4fc);
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 25px rgba(168,85,247,0.2));
+  }
+
+  .title-simple {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: bold;
+    color: white;
+  }
+
+  .description {
+    max-width: 700px;
+    margin: 1rem auto;
+    color: #f3f4f6;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .description-simple {
+    max-width: 600px;
+    margin: 1rem auto;
+    color: #d1d5db;
+    font-size: 1.125rem;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.2); }
+    66% { transform: translate(-20px, 20px) scale(0.8); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+</style>
