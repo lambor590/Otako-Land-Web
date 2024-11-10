@@ -1,0 +1,51 @@
+---
+import Card from "@components/Card.astro";
+import Hero from "@components/Hero.astro";
+import PrettyButton from "@components/PrettyButton.astro";
+import Section from "@components/Section.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Otako Land | Otako Craft">
+  <Hero
+    title="Otako Craft"
+    description="Servidores de Minecraft para jugar como quieras."
+  >
+    <PrettyButton href="/launcher" text="Descargar launcher" />
+  </Hero>
+  <Section title="¿Qué es?" columns={2}>
+    <Card
+      title="Otako Craft sin mods"
+      description="Es un servidor de Minecraft Java compatible con Bedrock. Puedes jugar con tus amigos sin necesidad de instalar mods. Más información en nuestro <a class='link' href='/discord'>Discord</a>."
+      color="blue"
+    />
+    <Card
+      title="Otako Craft con mods"
+      description="Es un servidor de Minecraft Java con mods. Puedes jugar con tus amigos con mods preinstalados y disfrutar de una experiencia única. Puedes descargar nuestro launcher para empezar a jugar en solo 3 pasos."
+    />
+  </Section>
+  <Section title="Características" dark>
+    <Card
+      title="Sin Temática"
+      description="En Otako Craft puedes jugar como quieras, sin restricciones ni temáticas. Solo tienes que respetar las normas del servidor."
+      color="blue"
+    />
+    <Card
+      title="Fácil de Jugar"
+      description="Nuestro launcher gestiona todo el proceso de instalación y actualización de mods, para que puedas jugar sin complicaciones."
+      color="red"
+    />
+    <Card
+      title="Comunidad Unida"
+      description="En Otako Craft encontrarás una comunidad unida y amigable, donde podrás compartir momentos y hacer amigos."
+      color="green"
+    />
+  </Section>
+  <Hero
+    title="¿Listo para pasarlo en grande?"
+    description="¡Descarga nuestro launcher y únete a nuestra comunidad de jugadores!"
+    simple
+  >
+    <PrettyButton href="/launcher" text="Descargar launcher" />
+  </Hero>
+</Layout>
