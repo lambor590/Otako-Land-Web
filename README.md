@@ -1,2 +1,1 @@
-# Código de la página web [otakocraft.tk](https://otakocraft.tk)
-Próximamente otako.tk
+# Código de la página web de [Otako Land](https://otako.link)
