@@ -1,0 +1,130 @@
+---
+interface Props {
+  title: string;
+  description: string | (string | HTMLElement)[];
+  color?: "purple" | "blue" | "green" | "pink" | "orange" | "red";
+  footerText?: string;
+}
+
+const { title, description, color = "purple", footerText } = Astro.props;
+
+const gradients = {
+  purple: "from-purple-500 via-fuchsia-500 to-blue-500",
+  blue: "from-blue-500 via-sky-500 to-cyan-500",
+  green: "from-green-500 via-emerald-500 to-teal-500",
+  pink: "from-pink-500 via-rose-500 to-red-500",
+  orange: "from-orange-500 via-amber-500 to-yellow-500",
+  red: "from-red-500 via-rose-500 to-pink-500",
+};
+---
+
+<div class={`card group ${color}`}>
+  <h3 class={`card-title bg-gradient-to-r ${gradients[color]}`}>
+    {title}
+  </h3>
+  {
+    Array.isArray(description) ? (
+      <ul class="card-list">
+        {description.map((desc) => (
+          <li class="card-item" set:html={desc} />
+        ))}
+      </ul>
+    ) : (
+      <p class="card-description" set:html={description} />
+    )
+  }
+  {footerText && <p class="card-footer">{footerText}</p>}
+</div>
+
+<style>
+  .card {
+    @apply relative flex flex-col items-center text-center p-10 rounded-2xl
+           bg-gray-800/30 backdrop-blur-lg shadow-lg border-2 border-gray-700/20
+           transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply scale-[1.03] -translate-y-2 bg-gray-700/50 shadow-2xl;
+  }
+
+  .card:before {
+    @apply content-[''] absolute inset-0 rounded-2xl -z-10 opacity-0
+           bg-gradient-to-b transition-opacity duration-300;
+  }
+
+  .card:hover:before {
+    @apply opacity-100;
+  }
+
+  .card-title {
+    @apply text-2xl font-bold mb-8 text-transparent bg-clip-text
+           transition-all duration-300;
+  }
+
+  .group:hover .card-title {
+    @apply scale-110 tracking-wide;
+  }
+
+  .card-description {
+    @apply text-gray-300 leading-relaxed text-base opacity-85
+           transition-all duration-300;
+  }
+
+  .group:hover .card-description {
+    @apply opacity-100 text-gray-100;
+  }
+
+  .purple:hover {
+    @apply border-purple-400/70 shadow-purple-500/20;
+  }
+  .purple:before {
+    @apply from-purple-500/5 to-transparent;
+  }
+
+  .blue:hover {
+    @apply border-blue-400/70 shadow-blue-500/20;
+  }
+  .blue:before {
+    @apply from-blue-500/5 to-transparent;
+  }
+
+  .green:hover {
+    @apply border-green-400/70 shadow-green-500/20;
+  }
+  .green:before {
+    @apply from-green-500/5 to-transparent;
+  }
+
+  .pink:hover {
+    @apply border-pink-400/70 shadow-pink-500/20;
+  }
+  .pink:before {
+    @apply from-pink-500/5 to-transparent;
+  }
+
+  .orange:hover {
+    @apply border-orange-400/70 shadow-orange-500/20;
+  }
+  .orange:before {
+    @apply from-orange-500/5 to-transparent;
+  }
+
+  .red:hover {
+    @apply border-red-400/70 shadow-red-500/20;
+  }
+  .red:before {
+    @apply from-red-500/5 to-transparent;
+  }
+
+  .card-footer {
+    @apply mt-8 text-base text-gray-400;
+  }
+
+  .card-list {
+    @apply list-none p-0;
+  }
+
+  .card-item {
+    @apply mb-4 p-4 bg-gray-800 rounded-lg text-gray-300 transition-transform duration-200 text-center;
+  }
+</style>
