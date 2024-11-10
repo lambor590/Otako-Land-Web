@@ -1,0 +1,72 @@
+---
+import Card from "@components/Card.astro";
+import Hero from "@components/Hero.astro";
+import PrettyButton from "@components/PrettyButton.astro";
+import Section from "@components/Section.astro";
+import Layout from "@layouts/Layout.astro";
+
+const questions = [
+  '¿Has tenido que activar Windows y has tenido que comprar una clave o instalado algún programa para "activar Windows" teniendo que desactivar el antivirus?',
+  "¿Has querido descargar el audio de una canción o un vídeo de una plataforma y has tenido que ir a una web a descargarlo en mala calidad?",
+  "¿Has sentido que tienes menos espacio libre del que deberías?",
+  "¿Has tenido problemas de Windows como que los iconos de algunos programas se rompan?",
+  "¿Has tenido que formatear o restablecer de fábrica el equipo y has tardado mucho en instalar todo lo que tenías?",
+  "¿Para solucionar alguno de los problemas mencionados te has instalado un programa que solo hace una cosa y pesa 200 MB?",
+];
+---
+
+<Layout title="Otako Land | Kaizen">
+  <Hero
+    title="Kaizen"
+    description="Todo lo que siempre has querido, en un solo lugar."
+  >
+    <PrettyButton icon="kaizen" href="/kz" text="Descargar Kaizen" />
+  </Hero>
+  <Section title="¿Qué es Kaizen?" columns={1}>
+    <Card
+      title="Alguna vez"
+      description={questions}
+      footerText="Kaizen tiene (o tendrá) todas las soluciones a esos problemas, pesando solo 8 MB."
+    />
+  </Section>
+  <Section title="Características" dark>
+    <Card
+      title="Velocidad y Eficiencia"
+      description="Kaizen está desarrollado para ser rápido y eficiente, para que puedas realizar tus tareas de forma rápida y sencilla."
+      color="orange"
+    />
+    <Card
+      title="Ligero"
+      description="Kaizen pesa solo 8 MB, por lo que no ocupará mucho espacio en tu disco duro y no ralentizará tu equipo."
+      color="green"
+    />
+    <Card
+      title="Interfaz Intuitiva"
+      description="La interfaz de Kaizen es fácil de usar y está diseñada para que puedas realizar tus tareas de forma cómoda y eficaz."
+      color="pink"
+    />
+  </Section>
+  <Section title="Funciones">
+    <Card
+      title="Liberador de Espacio"
+      description="Kaizen es tan rápido que puede liberar hasta 50 GB de espacio en menos de un segundo."
+      color="red"
+    />
+    <Card
+      title="Descarga vídeos/audios"
+      description="Descarga contenido multimedia de tus plataformas favoritas de forma rápida y sencilla, sin perder calidad. Todo ejecutado en tu equipo sin el uso de servicios externos."
+    />
+    <Card
+      title="Y mucho más"
+      description="Kaizen está en constante desarrollo (beta) y se añaden nuevas funciones con cada actualización."
+      color="blue"
+    />
+  </Section>
+  <Hero
+    title="¿Listo para mejorar tu experiencia?"
+    description="¡Descarga Kaizen hoy y te darás cuenta del tiempo que has perdido sin él!"
+    simple
+  >
+    <PrettyButton icon="kaizen" href="/kz" text="Descargar Kaizen" />
+  </Hero>
+</Layout>
