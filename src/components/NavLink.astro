@@ -6,10 +6,10 @@ interface Props {
 
 const { link, text } = Astro.props;
 const currentPath = Astro.url.pathname;
-const isActive = currentPath === link;
+const isActive = link !== "/" && currentPath.startsWith(link.toString());
 ---
 
-<a class={`nav-link ${isActive ? 'active' : ''}`} href={link}>{text}</a>
+<a class={`nav-link ${isActive ? "active" : ""}`} href={link}>{text}</a>
 
 <style>
   .nav-link {
