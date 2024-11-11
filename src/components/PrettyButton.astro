@@ -14,7 +14,7 @@ const { href, text, icon } = Astro.props;
   href={href}
   class="inline-flex items-center justify-center rounded-lg text-base font-medium bg-gradient-to-r from-purple-600 to-blue-600
                 text-white px-8 py-3 hover:scale-105 transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/25"
-  aria-label=`Un botón que lleva al apartado ${text}`
+  aria-label={text}
 >
   <span class="mr-2">{text}</span>
   {icon && <Icon name={icon} />}
