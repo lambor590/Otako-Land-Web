@@ -1,0 +1,19 @@
+---
+import LongText from "@components/LongText.astro";
+import Layout from "@layouts/Layout.astro";
+
+const tosContent = [
+  "No modificar el cliente o servidor de ninguna manera no autorizada.",
+  "No comercializar ni vender elementos, cuentas o servicios relacionados con el servidor.",
+  "No usar programas, mods o recursos que den ventajas injustas (hacks, cheats, etc.).",
+  "No intentar explotar bugs o vulnerabilidades del sistema.",
+];
+---
+
+<Layout title="Otako Land | Términos de Servicio">
+  <LongText
+    title="Términos de Servicio"
+    description="Al jugar en cualquiera de nuestros servidores de Minecraft, o usar Kaizen, aceptas cumplir con las siguientes condiciones:"
+    items={tosContent}
+  />
+</Layout>
