@@ -20,15 +20,8 @@ const { title, description, simple } = Astro.props;
   }
   <div class="content">
     <div class="text-wrapper fade-in">
-      {
-        simple ? (
-          <h2 class="title-simple">{title}</h2>
-          <p class="description-simple">{description}</p>
-        ) : (
-          <h1 class="title">{title}</h1>
-          <p class="description">{description}</p>
-        )
-      }
+      <h1 class={simple ? 'title-simple' : 'title'}>{title}</h1>
+      <p class={simple ? 'description-simple' : 'description'}>{description}</p>
     </div>
     <slot />
   </div>
