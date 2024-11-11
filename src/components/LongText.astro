@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  description: string | string[];
+  items?: string[];
+}
+
+const { title, description, items = [] } = Astro.props;
+---
+
+<section class="py-8">
+  <div class="max-w-3xl mx-auto px-4 prose prose-slate">
+    <h1 class="text-4xl font-bold mb-6 text-white">{title}</h1>
+    <div class="space-y-4 text-gray-300">
+      {
+        Array.isArray(description) ? (
+          description.map((desc) => <p>{desc}</p>)
+        ) : (
+          <p>{description}</p>
+        )
+      }
+      {
+        items.length > 0 && (
+          <ul class="list-disc pl-5 space-y-2">
+            {items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+</section>
