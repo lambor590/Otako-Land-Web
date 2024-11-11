@@ -1,0 +1,14 @@
+---
+import LongText from "@components/LongText.astro";
+import Layout from "@layouts/Layout.astro";
+
+const privacyDetails = [
+  "En ninguno de nuestros proyectos se recolectan datos de los usuarios.",
+  "Nos comprometemos a mantener la privacidad y seguridad de nuestros usuarios como máxima prioridad. No utilizamos cookies de rastreo, no almacenamos información personal y no compartimos ningún tipo de datos con terceros.",
+  "Si tienes alguna pregunta sobre nuestra política de privacidad, puedes contactarnos a través de nuestros canales oficiales de comunicación.",
+];
+---
+
+<Layout title="Otako Land | Política de Privacidad">
+  <LongText title="Política de Privacidad" description={privacyDetails} />
+</Layout>
