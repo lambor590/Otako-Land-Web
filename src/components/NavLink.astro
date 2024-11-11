@@ -5,9 +5,11 @@ interface Props {
 }
 
 const { link, text } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isActive = currentPath === link;
 ---
 
-<a class="nav-link" href={link}>{text}</a>
+<a class={`nav-link ${isActive ? 'active' : ''}`} href={link}>{text}</a>
 
 <style>
   .nav-link {
@@ -24,7 +26,12 @@ const { link, text } = Astro.props;
     @apply bg-purple-500/30 text-purple-200 scale-105 shadow-lg shadow-purple-500/20;
   }
 
-  .nav-link:hover::after {
+  .nav-link:hover::after,
+  .nav-link.active::after {
     @apply w-4/5;
+  }
+
+  .nav-link.active {
+    @apply bg-purple-500/30 text-purple-200;
   }
 </style>
