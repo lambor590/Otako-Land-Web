@@ -23,48 +23,33 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="flex flex-col min-h-screen bg-gray-900 text-gray-100">
-    <header
-      class="px-4 sm:px-6 lg:px-8 h-16 flex items-center bg-gray-800/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-700/50"
-    >
-      <a
-        href="/"
-        class="flex items-center justify-center group transition-transform hover:scale-105"
-      >
-        <img
-          src="/logo.webp"
-          class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg shadow-purple-500/20"
-        />
-        <span
-          class="hidden sm:block ml-2 sm:ml-3 text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-        >
-          Otako Land
-        </span>
+    <header class="header">
+      <a href="/" class="logo-link group">
+        <div class="logo-container">
+          <img src="/logo.webp" class="logo" />
+          <div class="logo-blur"></div>
+        </div>
+        <span class="brand-name">Otako Land</span>
       </a>
-      <nav class="ml-auto flex gap-3 sm:gap-6">
+      <nav class="main-nav">
         <NavLink link="/minecraft" text="Minecraft" />
         <NavLink link="/kaizen" text="Kaizen" />
         <NavLink link="/discord" text="Discord" />
       </nav>
     </header>
-    <main class="flex-1 bg-gray-900">
+    <main class="main-content">
       <slot />
     </main>
-    <footer
-      class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-700 bg-gray-800"
-    >
-      <p class="text-xs text-gray-400">
-        © 2024 Otako Land. Todos los derechos reservados.
-      </p>
-      <nav class="sm:ml-auto flex gap-4 sm:gap-6">
-        <a
-          class="text-xs text-gray-400 hover:text-purple-400 hover:underline underline-offset-4"
-          href="/tos">Términos de Servicio</a
-        >
-        <a
-          class="text-xs text-gray-400 hover:text-purple-400 hover:underline underline-offset-4"
-          href="/privacy">Política de Privacidad</a
-        >
-      </nav>
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="copyright">
+          © 2024 Otako Land. Todos los derechos reservados.
+        </p>
+        <nav class="footer-nav">
+          <a href="/tos" class="footer-link">Términos de Servicio</a>
+          <a href="/privacy" class="footer-link">Política de Privacidad</a>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>
@@ -98,7 +83,64 @@ const { title } = Astro.props;
     transform: scaleX(1);
   }
 
-  .text-5xl {
-    line-height: 1.4rem;
+  .header {
+    @apply px-4 sm:px-6 lg:px-8 h-16 flex items-center bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-md sticky top-0 z-50 border-b border-purple-500/30 shadow-lg shadow-purple-500/10;
+  }
+
+  .logo-link {
+    @apply flex items-center relative transition-all duration-500 hover:scale-105;
+  }
+
+  .logo-container {
+    @apply relative;
+  }
+
+  .logo {
+    @apply w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-md shadow-purple-500/40 ring-2 ring-purple-500/30 group-hover:ring-4 group-hover:ring-purple-400/60 transition-all duration-500 group-hover:shadow-purple-500/60;
+  }
+
+  .logo-blur {
+    @apply absolute inset-0 rounded-full bg-purple-500/20 group-hover:bg-purple-500/30 blur-md transition-all duration-500 -z-10;
+  }
+
+  .brand-name {
+    @apply hidden sm:block ml-3 text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-purple-300 via-pink-400 to-purple-500 bg-clip-text text-transparent transition-[background-position,colors] duration-500 bg-[size:200%] bg-left hover:bg-right;
+  }
+
+  .main-nav {
+    @apply ml-auto flex gap-4 sm:gap-8;
+  }
+
+  .main-content {
+    @apply flex-1 bg-gray-900;
+  }
+
+  .footer {
+    @apply w-full shrink-0 border-t border-purple-700/30 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 px-4 py-6;
+  }
+
+  .footer-content {
+    @apply flex flex-col items-center gap-3 sm:flex-row sm:justify-between;
+  }
+
+  .copyright {
+    @apply text-sm text-gray-400;
+  }
+
+  .footer-nav {
+    @apply flex gap-4 text-sm text-gray-400;
+  }
+
+  .footer-link {
+    @apply hover:text-purple-300 transition-all duration-300 relative;
+  }
+
+  .footer-link::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-[1px] bg-purple-300 scale-x-0 origin-left transition-transform;
+  }
+
+  .footer-link:hover::after {
+    @apply scale-x-100;
   }
 </style>
