@@ -10,12 +10,39 @@ interface Props {
 const { href, text, icon } = Astro.props;
 ---
 
-<a
-  href={href}
-  class="inline-flex items-center justify-center rounded-lg text-base font-medium bg-gradient-to-r from-purple-600 to-blue-600
-                text-white px-8 py-3 hover:scale-105 transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/25"
-  aria-label={text}
->
-  <span class="mr-2">{text}</span>
-  {icon && <Icon name={icon} />}
+<a href={href} class="btn-pretty group" aria-label={text}>
+  <span>{text}</span>
+  {icon && <Icon name={icon} class="w-5 h-5 ml-3" />}
 </a>
+
+<style>
+  .btn-pretty {
+    @apply relative inline-flex items-center justify-center rounded-xl;
+    @apply text-base font-semibold text-white px-8 py-3.5;
+    @apply bg-gradient-to-br from-purple-600 via-indigo-500 to-blue-500;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/30;
+    @apply active:scale-[0.98];
+  }
+
+  .btn-pretty::before {
+    content: "";
+    @apply absolute inset-0 rounded-xl;
+    @apply bg-gradient-to-br from-purple-400 via-indigo-400 to-blue-400;
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-pretty:hover::before {
+    @apply opacity-20;
+  }
+
+  .btn-pretty::after {
+    content: "";
+    @apply absolute inset-0 rounded-xl border-2 border-white/30;
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-pretty:hover::after {
+    @apply opacity-100;
+  }
+</style>
