@@ -1,2 +1,15 @@
+# Robots.txt para otako.land
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://otako.land/sitemap.xml
+
+# Optimizaciones para rendimiento de rastreo
+Crawl-delay: 10
+
+# Archivos y directorios específicos
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$

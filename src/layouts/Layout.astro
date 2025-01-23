@@ -14,41 +14,97 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Página web de Otako Land" />
+    <meta
+      name="description"
+      content="Otako Land - Comunidad gaming con servidores de Minecraft, bots de Discord y herramientas para gamers. ¡Únete a nuestra comunidad!"
+    />
+    <meta
+      name="keywords"
+      content="otako land, gaming, minecraft server, discord community, kaizen tool, gaming community, minecraft java, minecraft bedrock"
+    />
+    <meta name="author" content="The Ghost" />
+    <meta name="theme-color" content="#923ed6" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://otako.link" />
     <meta property="og:site_name" content="Otako Land" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="Página web de Otako Land" />
-    <meta property="og:image" content="/logo.webp" />
-    <link rel="icon" type="image/svg+xml" href="/logo.webp" />
+    <meta
+      property="og:description"
+      content="Otako Land - Comunidad gaming con servidores de Minecraft, bots de Discord y herramientas para gamers. ¡Únete a nuestra comunidad!"
+    />
+    <meta property="og:image" content="https://otako.link/logo.webp" />
+    <meta property="og:image:alt" content="Logo de Otako Land" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content="Otako Land - Comunidad gaming con servidores de Minecraft, bots de Discord y herramientas para gamers"
+    />
+    <meta name="twitter:image" content="/logo.webp" />
+    <meta name="twitter:image:alt" content="Logo de Otako Land" />
+
+    <link rel="icon" type="image/svg+xml" href="https://otako.link/logo.webp" />
+    <link rel="canonical" href="https://otako.link" />
     <ClientRouter />
-    <title>{title}</title>
+    <title>{title} | Otako Land</title>
   </head>
   <body class="flex flex-col min-h-screen bg-gray-900 text-gray-100">
-    <header class="header">
-      <a href="/" class="logo-link group">
+    <header class="header" role="banner">
+      <a href="/" class="logo-link group" aria-label="Inicio - Otako Land">
         <div class="logo-container">
-          <img src="/logo.webp" class="logo" />
-          <div class="logo-blur"></div>
+          <img
+            src="/logo.webp"
+            alt="Logo de Otako Land"
+            class="logo"
+            width="48"
+            height="48"
+          />
+          <div class="logo-blur" aria-hidden="true"></div>
         </div>
         <span class="brand-name">Otako Land</span>
       </a>
-      <nav class="main-nav">
-        <NavLink link="/minecraft" text="Minecraft" />
-        <NavLink link="/kaizen" text="Kaizen" />
-        <NavLink link="/discord" text="Discord" />
+      <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+        <NavLink
+          link="/minecraft"
+          text="Minecraft"
+          ariaLabel="Ir a la sección de Minecraft"
+        />
+        <NavLink
+          link="/kaizen"
+          text="Kaizen"
+          ariaLabel="Ir a la sección de Kaizen"
+        />
+        <NavLink
+          link="/discord"
+          text="Discord"
+          ariaLabel="Unirse a nuestro Discord"
+        />
       </nav>
     </header>
     <main class="main-content">
       <slot />
     </main>
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="footer-content">
         <p class="copyright">
           © 2025 Otako Land. Todos los derechos reservados.
         </p>
-        <nav class="footer-nav">
-          <a href="/tos" class="footer-link">Términos de Servicio</a>
-          <a href="/privacy" class="footer-link">Política de Privacidad</a>
+        <nav class="footer-nav" role="navigation" aria-label="Enlaces legales">
+          <a
+            href="/tos"
+            class="footer-link"
+            aria-label="Ver términos de servicio">Términos de Servicio</a
+          >
+          <a
+            href="/privacy"
+            class="footer-link"
+            aria-label="Ver política de privacidad">Política de Privacidad</a
+          >
         </nav>
       </div>
     </footer>

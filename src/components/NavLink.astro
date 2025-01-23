@@ -2,14 +2,20 @@
 interface Props {
   link: string | URL;
   text: string;
+  ariaLabel?: string;
 }
 
-const { link, text } = Astro.props;
+const { link, text, ariaLabel } = Astro.props;
 const currentPath = Astro.url.pathname;
 const isActive = link !== "/" && currentPath.startsWith(link.toString());
 ---
 
-<a class={`nav-link ${isActive ? "active" : ""}`} href={link}>{text}</a>
+<a
+  class={`nav-link ${isActive ? "active" : ""}`}
+  href={link}
+  aria-label={ariaLabel || text}
+  aria-current={isActive ? "page" : undefined}>{text}</a
+>
 
 <style>
   .nav-link {
