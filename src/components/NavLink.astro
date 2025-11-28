@@ -11,33 +11,27 @@ const isActive = link !== "/" && currentPath.startsWith(link.toString());
 ---
 
 <a
-  class={`nav-link ${isActive ? "active" : ""}`}
+  class={`nav-link relative text-sm text-gray-300 px-4 py-2 rounded-lg transition-all duration-300 ease-out hover:bg-purple-500/30 hover:text-purple-200 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 ${isActive ? "active bg-purple-500/30 text-purple-200" : ""}`}
   href={link}
   aria-label={ariaLabel || text}
   aria-current={isActive ? "page" : undefined}>{text}</a
 >
 
 <style>
-  .nav-link {
-    @apply relative text-sm text-gray-300 px-4 py-2 rounded-lg transition-all duration-300 ease-out;
-  }
-
   .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-1/2 h-[2px] w-0 bg-purple-400;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 2px;
+    width: 0;
+    background-color: rgb(192 132 252);
     transform: translateX(-50%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .nav-link:hover {
-    @apply bg-purple-500/30 text-purple-200 scale-105 shadow-lg shadow-purple-500/20;
-  }
-
   .nav-link:hover::after,
   .nav-link.active::after {
-    @apply w-4/5;
-  }
-
-  .nav-link.active {
-    @apply bg-purple-500/30 text-purple-200;
+    width: 80%;
   }
 </style>
