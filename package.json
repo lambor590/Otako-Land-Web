@@ -3,21 +3,20 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "bunx --bun astro dev",
+    "start": "bunx --bun astro dev",
+    "build": "bunx --bun astro check && bunx --bun astro build",
+    "preview": "bunx --bun astro preview",
+    "astro": "bunx --bun astro"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.4",
-    "@astrojs/tailwind": "5.1.5",
-    "astro": "5.1.9",
+    "@astrojs/tailwind": "6.0.2",
+    "astro": "5.16.2",
     "astro-icon": "1.1.5",
-    "tailwindcss": "3.4.17",
-    "typescript": "5.7.3"
+    "tailwindcss": "4.1.17"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "0.5.16"
+    "@tailwindcss/typography": "0.5.19",
+    "@types/bun": "latest"
   }
 }
